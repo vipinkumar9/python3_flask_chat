@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.socket.io/3.1.1/socket.io.min.js" integrity="sha384-gDaozqUvc4HTgo8iZjwth73C6dDDeOJsAgpxBcMpZYztUfjHXpzrpdrHRdVp8ySO" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="active" class="jumbotron"></div>
+
+    <script>
+        var soc = io();
+        soc.on("connect", function(){
+            console.log("User connected");
+            
+        })
+
+    
+
+
+        soc.on("messege", function(msg){
+            
+            $("#active").text("Active Users: " + msg.data);
+        });
+    </script>
+    
+</body>
+</html>
